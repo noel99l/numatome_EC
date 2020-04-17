@@ -3,36 +3,36 @@
 # いない場合は作成する。うしろのdo〜endで、キー以外に持たせたいカラムを指定する。
 # !をつけると、rails db:seedを実行した時に、not nullなどで正常に作成出来なかった場合にエラーが出て、知ることができる。
 
-Admin.find_or_create_by!(email: 'admin@nagano.com') do |admin|
-  admin.password = 'password'
+Admin.find_or_create_by!(email: 'admin@numatome.com') do |admin|
+  admin.password = 'otonumazu'
 end
  
-genre1 = Genre.find_or_create_by!(name: 'ケーキ')
-genre2 = Genre.find_or_create_by!(name: 'クッキー')
-genre3 = Genre.find_or_create_by!(name: 'チョコレート')
+genre1 = Genre.find_or_create_by!(name: '魚介類')
+genre2 = Genre.find_or_create_by!(name: 'デザート')
+genre3 = Genre.find_or_create_by!(name: 'グッズ')
 
-genre1.items.find_or_create_by!(name: 'チーズケーキ') do |item|
-  item.description = 'チーズケーキです'
+genre1.items.find_or_create_by!(name: 'さばセット') do |item|
+  item.description = '新鮮なサバのセットです'
   item.image_id = '0a433310265ef52281c50d0c08d61a440fdd1a4ceeec769538a9eb121402'
-  item.price = 400
+  item.price = 2000
   item.item_status = 0
 end
-genre1.items.find_or_create_by!(name: 'チョコケーキ') do |item|
-  item.description = 'チョコケーキです'
+genre1.items.find_or_create_by!(name: 'あじセット') do |item|
+  item.description = '新鮮なあじのセットです'
   item.image_id = 'f08462eb79056da362b65d2732240c6045d55c8f45ba0b681d2ddafacf24'
+  item.price = 2000
+  item.item_status = 0
+end
+genre2.items.find_or_create_by!(name: 'プリン') do |item|
+  item.description = '深海をイメージしたプリンです'
+  item.image_id = 'b2357dc5c651aaa5c2059eae579c7b174ae486f9e332df547e6a315203e2'
   item.price = 500
   item.item_status = 0
 end
-genre2.items.find_or_create_by!(name: 'チョコクッキー') do |item|
-  item.description = 'チョコクッキーです'
-  item.image_id = 'b2357dc5c651aaa5c2059eae579c7b174ae486f9e332df547e6a315203e2'
-  item.price = 400
-  item.item_status = 0
-end
-genre3.items.find_or_create_by!(name: 'ブラウニー') do |item|
-  item.description = 'ブラウニーです'
+genre3.items.find_or_create_by!(name: 'パーカー') do |item|
+  item.description = '某パーカーです'
   item.image_id = '2c439c31159354b06a2e0b561580a9d7522362ef032bca0a9d4398e72b49'
-  item.price = 300
+  item.price = 5800
   item.item_status = 0
 end
 
@@ -40,7 +40,7 @@ end
 # rails db:seed　を実行する度に1人につき1つの注文が作成される
 50.times { |m|
   n = m + 1
-  user = User.find_or_create_by!(email: "user#{n}@nagano.com") do |u|
+  user = User.find_or_create_by!(email: "user#{n}@numazu.com") do |u|
     u.family_name = '山田'
     u.first_name = "太郎#{n}"
     u.kana_family_name = 'ヤマダ'

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:html_title) ? "ながのケーキ | #{yield(:html_title)}" : "ながのケーキ" %></title>
+    <title><%= content_for?(:html_title) ? "NUMATOME EC | #{yield(:html_title)}" : "ぬまとめEC" %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= favicon_link_tag('favicon.ico') %>
@@ -18,7 +18,7 @@
       <div class="container">
         <div class="row">
           <h3 class="navbar-left">
-            <%= link_to image_tag("naganocake.png", height: 75), root_path %>
+            <%= link_to image_tag("numatome_logo.png", height: 75), root_path %>
           </h3>
               <div class="nav navbar-nav navbar-right">
                 <% if user_signed_in? %>
@@ -97,7 +97,7 @@
       <%= yield %>
       <div class="container">
         <footer>
-          <p><%= link_to "ながのケーキ", root_path %></p>
+          <p><%= link_to "ぬまとめ", root_path %></p>
         </footer>
       </div>
     </body>
