@@ -1,0 +1,49 @@
+// Place all the styles related to the admin::items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.margin-top{
+	margin-top: 40px;
+}
+
+.margin-bottom{
+	margin-bottom:15px;
+}
+
+.float-right{
+	float:left;
+}
+
+.marker-line{
+	background: linear-gradient(transparent 60%, #66ffcc 60%);
+	font-size:20px
+}
+.item-user-search {
+	margin-bottom: -20px;
+}
+
+.admin-item-new {
+	font-size: 16px;
+	input {
+		font-size: 16px;
+	}
+	.item-name-form {
+		margin-left: 15px;
+	}
+	img {
+		border: 1px solid silver;
+	}
+	.description-label {
+		vertical-align: top;
+	}
+	textarea {
+		width: 280px;
+		height: 80px;
+	}
+}
+
+.admin-item-show-page {
+	.admin-item-span {
+		font-size: 16px;
+	}
+}

@@ -1,0 +1,30 @@
+<% content_for(:html_title) { "配送先編集" } %>
+<div class="col-xs-2">
+</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-9">
+       <h3>配送先編集</h3>
+       <%= form_for(@address) do |a| %>
+        <%= render 'shared/errors', object: @address %>
+        <table class="table table-bordered">
+         <tr>
+           <th class="active">郵便番号</th>
+　　　      <td><%= a.text_field :postal_code %></td>
+         </tr>
+         <tr>
+           <th class="active">住所</th>
+           <td><%= a.text_field :address %></td>
+         </tr>
+         <tr>
+           <th class="active">宛名</th>
+           <td><%= a.text_field :receiver_name %></td>
+           <td>
+            <%= a.submit "編集する", class: "btn btn-primary" %>
+           </td>
+         </tr>
+        </table>
+       <% end %>
+      </div>
+    </div>
+  </div>

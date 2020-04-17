@@ -1,0 +1,42 @@
+<% content_for(:html_title) { "会員編集" } %>
+
+<h1 class="heading">会員編集画面</h1>
+  <%= form_for @user, url: admin_user_path do |f| %>
+    <%= render 'shared/errors', object: @user %>
+    <table class="admin-user-edit-table">
+      <tr>
+        <th>会員ID</th>
+        <td><%= @user.id %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :family_name, "氏名" %></th>
+        <td><%= f.text_field :family_name, size:15 %><%= f.text_field :first_name, size:15, class: "first-name-field" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :kana_family_name, "ふりがな" %></th>
+        <td><%= f.text_field :kana_family_name, size:15 %><%= f.text_field :kana_first_name, size:15, class: "first-name-field" %></td>
+      </tr>
+        <%= f.fields_for :addresses, @user_address do |af| %>
+          <tr>
+            <th><%= af.label :postal_code, "郵便番号" %></th>
+            <td><%= af.text_field :postal_code, size:10 %></td>
+          </tr>
+          <tr>
+            <th><%= af.label :address, "住所" %></th>
+            <td><%= af.text_field :address, class: "user-address" %></td>
+          </tr>
+        <% end %>
+      <tr>
+        <th><%= f.label :phone_number, "電話番号" %></th>
+        <td><%= f.text_field :phone_number, size:15 %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :email, "メールアドレス" %></th>
+        <td><%= f.email_field :email, class: "user-email" %></td>
+      </tr>
+    </table>
+    <div class="admin-user-buttons">
+      <%= f.submit '退会済にする', name: "unsubscribe", class: "btn btn-danger unsubscribe-button", "data-confirm" => "本当に退会済にしますか？", disabled: @user.unsubscribed? %>
+      <%= f.submit '変更を保存する', class: "btn btn-primary" %>
+    </div>
+  <% end %>

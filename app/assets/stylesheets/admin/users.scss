@@ -1,0 +1,80 @@
+// Place all the styles related to the admin::users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.admin-page {
+  margin-bottom: 20px;
+}
+.user-index-table {
+  margin-top: 25px;
+}
+.pagination {
+  margin-top: 10px!important;
+  font-size: 18px;
+}
+.pagination_info {
+  font-size: 16px;
+}
+
+.user_search_button {
+  background-color: #008CFF!important;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.admin-user-show {
+  font-size: 18px;
+  width: 100%;
+  margin-bottom: 20px;
+  th {
+    width: 15%;
+    padding: 8px 0;
+  }
+  td {
+    width: 85%;
+    padding: 8px 0;
+  }
+}
+.admin-user-buttons {
+  margin-bottom: 30px;
+}
+.admin-user-edit-btn {
+  margin-right: 15px;
+}
+.active-or-unsubscribed {
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: #9cf;
+  margin-left: 10px;
+  font-size: 14px;
+  padding: 2px;
+}
+
+.admin-user-edit-table {
+  font-size: 18px;
+  margin-bottom: 20px;
+  width: 100%;
+  th, td {
+    padding: 8px 0;
+  }
+  th {
+    width: 180px;
+  }
+  input {
+    padding: 8px;
+  }
+  .user-address {
+    width: 70%;
+  }
+  .user-email {
+    width: 50%;
+  }
+  .first-name-field {
+    margin-left: 10px;
+  }
+}
+.unsubscribe-button {
+  margin-right: 10px;
+}

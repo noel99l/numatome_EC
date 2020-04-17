@@ -1,0 +1,43 @@
+<% content_for(:html_title) { "商品一覧" } %>
+<div class="col-md-10 col-md-offset-1">
+	<h1 class="heading">商品一覧画面</h1>
+	<% if @search %>
+    <p>「<%= @search %>」の検索結果</p>
+  <% end %>
+  <%= form_tag(admin_items_path, method: :get, class: "user-search item-user-search", enforce_utf8: false) do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag '商品を検索', :name => nil, class: "btn btn-primary user_search_button" %>
+  <% end %>
+
+	<div class="pull-right">
+			<div>
+				<%= link_to"new", new_admin_item_path, class: "pulse" %>
+			</div>
+	</div>
+
+	<table class="table table-hover user-index-table admin-table">
+		<thead>
+			<tr>
+				<th>商品ID</th>
+				<th>商品名</th>
+				<th>税抜価格</th>
+				<th>ジャンル</th>
+				<th>ステータス</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% @items.each do|item| %>
+			<tr>
+				<td><%= item.id %></td>
+				<td><%= link_to (item.name), admin_item_path(item.id) %></td>
+				<td><%= item.price %></td>
+				<td><%= item.genre.name %></td>
+				<td><%= item.item_status %></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+	<%= paginate @items %>
+	 <%= page_entries_info @items, entry_name: "商品" %>
+</div>
+
